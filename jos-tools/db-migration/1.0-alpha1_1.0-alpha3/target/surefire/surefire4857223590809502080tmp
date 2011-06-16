@@ -1,0 +1,34 @@
+#surefire
+#Thu Jun 16 22:38:29 EEST 2011
+testClassesDirectory=C\:\\Users\\t3hnar\\Projects\\thenewmotion\\jos\\jos-tools\\db-migration\\1.0-alpha1_1.0-alpha3\\target\\test-classes
+classPathUrl.4=C\:\\Users\\t3hnar\\.m2\\repository\\commons-codec\\commons-codec\\1.5\\commons-codec-1.5.jar
+classPathUrl.3=C\:\\Users\\t3hnar\\.m2\\repository\\commons-logging\\commons-logging\\1.1.1\\commons-logging-1.1.1.jar
+classPathUrl.2=C\:\\Users\\t3hnar\\.m2\\repository\\commons-lang\\commons-lang\\2.6\\commons-lang-2.6.jar
+useManifestOnlyJar=true
+classPathUrl.1=C\:\\Users\\t3hnar\\Projects\\thenewmotion\\jos\\jos-tools\\db-migration\\1.0-alpha1_1.0-alpha3\\target\\classes
+reportsDirectory=C\:\\Users\\t3hnar\\Projects\\thenewmotion\\jos\\jos-tools\\db-migration\\1.0-alpha1_1.0-alpha3\\target\\surefire-reports
+classPathUrl.0=C\:\\Users\\t3hnar\\Projects\\thenewmotion\\jos\\jos-tools\\db-migration\\1.0-alpha1_1.0-alpha3\\target\\test-classes
+dirscanner.0=directoryScannerOptions
+providerConfiguration=org.apache.maven.surefire.junit.JUnit3Provider
+testSuiteDefinitionTestSourceDirectory=C\:\\Users\\t3hnar\\Projects\\thenewmotion\\jos\\jos-tools\\db-migration\\1.0-alpha1_1.0-alpha3\\src\\test\\java
+surefireClassPathUrl.1=C\:\\Users\\t3hnar\\.m2\\repository\\org\\apache\\maven\\surefire\\surefire-api\\2.7.1\\surefire-api-2.7.1.jar
+surefireClassPathUrl.0=C\:\\Users\\t3hnar\\.m2\\repository\\org\\apache\\maven\\surefire\\surefire-junit3\\2.7.1\\surefire-junit3-2.7.1.jar
+report.2=org.apache.maven.surefire.report.XMLReporter
+useSystemClassLoader=true
+report.1=org.apache.maven.surefire.report.BriefFileReporter
+report.0=org.apache.maven.surefire.report.ForkingConsoleReporter
+excludes0=**/*$*
+isTrimStackTrace=true
+dirscanner.0.params=C\:\\Users\\t3hnar\\Projects\\thenewmotion\\jos\\jos-tools\\db-migration\\1.0-alpha1_1.0-alpha3\\target\\test-classes|[**/Test*.java, **/*Test.java, **/*TestCase.java]|[**/*$*]
+includes2=**/*TestCase.java
+enableAssertions=true
+includes1=**/*Test.java
+failIfNoTests=false
+includes0=**/Test*.java
+dirscanner.0.types=java.io.File|java.util.ArrayList|java.util.ArrayList
+classPathUrl.9=C\:\\Users\\t3hnar\\.m2\\repository\\postgresql\\postgresql\\9.0-801.jdbc4\\postgresql-9.0-801.jdbc4.jar
+classPathUrl.8=C\:\\Users\\t3hnar\\.m2\\repository\\mysql\\mysql-connector-java\\5.1.16\\mysql-connector-java-5.1.16.jar
+classPathUrl.7=C\:\\Users\\t3hnar\\.m2\\repository\\hsqldb\\hsqldb\\1.8.0.10\\hsqldb-1.8.0.10.jar
+childDelegation=false
+classPathUrl.6=C\:\\Users\\t3hnar\\.m2\\repository\\commons-cli\\commons-cli\\1.2\\commons-cli-1.2.jar
+classPathUrl.5=C\:\\Users\\t3hnar\\.m2\\repository\\commons-dbutils\\commons-dbutils\\1.3\\commons-dbutils-1.3.jar
