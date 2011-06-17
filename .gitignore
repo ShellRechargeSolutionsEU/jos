@@ -1,3 +1,4 @@
 .idea
 *.iml
 */target
+jos-webapp/src/main/webapp/WEB-INF/jetty-env.xml
