@@ -311,7 +311,7 @@ public class ApprovingRequestProcessor {
 		} else {
 			if (authenticatedAndApproved) {
 				try {
-					addExtension(response);
+					addExtension(response, persona);
 					addSRegExtension(response, persona);
 				} catch (MessageException e) {
 					LOG.error("", e);
@@ -402,26 +402,35 @@ public class ApprovingRequestProcessor {
 	 *             if add failed
 	 */
 	@SuppressWarnings("unchecked")
-	private void addExtension(final Message response) throws MessageException {
-		if (authRequest.hasExtension(AxMessage.OPENID_NS_AX)) {
+	private void addExtension(final Message response, final Persona persona) throws MessageException {
+		if (authRequest.hasExtension(AxMessage.OPENID_NS_AX) && persona != null) {
 			MessageExtension ext = authRequest
 					.getExtension(AxMessage.OPENID_NS_AX);
 			if (ext instanceof FetchRequest) {
 				FetchRequest fetchReq = (FetchRequest) ext;
-				Map required = fetchReq.getAttributes(true);
-				Map optional = fetchReq.getAttributes(false);
-				if (required.containsKey("email")
-						|| optional.containsKey("email")) {
-					Map userDataExt = new HashMap();
-					// userDataExt.put("email", userData.get(3));
+				Map<String, String> required = fetchReq.getAttributes(true);
+				Map<String, String> optional = fetchReq.getAttributes(false);
 
-					FetchResponse fetchResp = FetchResponse
+				Map userDataExt = new HashMap();
+                FetchResponse fetchResp = FetchResponse
 							.createFetchResponse(fetchReq, userDataExt);
-					// (alternatively) manually add attribute values
-					fetchResp.addAttribute("email",
-							"http://schema.openid.net/contact/email", "email");
-					response.addExtension(fetchResp);
-				}
+
+                for (String entry : required.values()) {
+                    if (entry.equals("http://axschema.org/contact/email")) {
+                        fetchResp.addAttribute("email", "http://axschema.org/contact/email",
+                            persona.getEmail());
+                    } else if (entry.equals("http://axschema.org/namePerson")) {
+                        fetchResp.addAttribute("fullname", "http://axschema.org/namePerson",
+                            persona.getFullname());
+                    } else if (entry.equals("http://axschema.org/namePerson/first")) {
+                        fetchResp.addAttribute("first", "http://axschema.org/namePerson/first",
+                            persona.getFullname().substring(0, persona.getFullname().indexOf(' ')));
+                    } else if (entry.equals("http://axschema.org/namePerson/last")) {
+                        fetchResp.addAttribute("last", "http://axschema.org/namePerson/last",
+                            persona.getFullname().substring(persona.getFullname().indexOf(' ') + 1));
+                    }
+                }
+                response.addExtension(fetchResp);
 			} else { // if (ext instanceof StoreRequest)
 				throw new UnsupportedOperationException("TODO");
 			}

@@ -32,10 +32,14 @@
  */
 package cn.net.openid.jos.web.controller;
 
+import java.util.HashSet;
+import java.util.Locale;
 import java.util.Map;
+import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 
+import cn.net.openid.jos.domain.Attribute;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.validation.BindException;
 import org.springframework.validation.Errors;
@@ -43,6 +47,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import cn.net.openid.jos.domain.Password;
 import cn.net.openid.jos.domain.User;
+import cn.net.openid.jos.domain.Persona;
 import cn.net.openid.jos.web.AbstractJosSimpleFormController;
 import cn.net.openid.jos.web.MessageCodes;
 import cn.net.openid.jos.web.form.RegisterForm;
@@ -125,6 +130,20 @@ public class RegisterController extends AbstractJosSimpleFormController {
 		password.setPlaintext(form.getPassword());
 		password.setShaHex(passwordShaHex);
 		this.getJosService().insertUser(user, password);
+        Persona persona = new Persona(user);
+        persona.setFullname(form.getFirstName() + " " + form.getLastName());
+        persona.setAttributes(new HashSet<Attribute>());
+        persona.setCountry("");
+        persona.setDob("");
+        persona.setEmail(form.getEmail());
+        persona.setGender("");
+        persona.setLanguage("");
+        persona.setName("");
+        persona.setLocale(new Locale(""));
+        persona.setNickname("");
+        persona.setPostcode("");
+        persona.setTimezone("");
+        this.getJosService().insertPersona(user, persona);
 		return super.onSubmit(command, errors);
 	}
 }

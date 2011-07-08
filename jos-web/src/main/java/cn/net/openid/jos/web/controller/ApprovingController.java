@@ -40,6 +40,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
 import org.openid4java.message.AuthRequest;
+import org.openid4java.message.ax.AxMessage;
 import org.openid4java.message.sreg.SRegMessage;
 import org.springframework.validation.BindException;
 import org.springframework.validation.Errors;
@@ -88,7 +89,8 @@ public class ApprovingController extends AbstractJosSimpleFormController {
 			AuthRequest authReq = checkIdRequest.getAuthRequest();
 			form.setAuthRequest(authReq);
 
-			if (authReq.hasExtension(SRegMessage.OPENID_NS_SREG)) {
+			if (authReq.hasExtension(SRegMessage.OPENID_NS_SREG) ||
+                    authReq.hasExtension(AxMessage.OPENID_NS_AX)) {
 				models.put("personas", this.getJosService().getPersonas(
 						userSession.getUser()));
 

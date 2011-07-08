@@ -61,6 +61,18 @@ public class RegisterForm implements Serializable {
 	 */
 	private String confirmingPassword;
 
+    private String firstName;
+    public String getFirstName() { return firstName; }
+    public void setFirstName(String x) { firstName = x; }
+
+    private String lastName;
+    public String getLastName() { return lastName; }
+    public void setLastName(String x) { lastName = x; }
+
+    private String email;
+    public String getEmail() { return email; }
+    public void setEmail(String x) { email = x; }
+
 	/**
 	 * @return the user
 	 */

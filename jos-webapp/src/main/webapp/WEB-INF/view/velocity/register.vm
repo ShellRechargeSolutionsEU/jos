@@ -95,6 +95,33 @@
 							#springShowErrors("" "error")
 						</td>
 					</tr>
+					<tr>
+						<td class="label">
+							<label for="firstName">#springMessage("persona.label.firstname")</label>
+						</td>
+						<td>
+							#springFormInput("command.firstName" "")
+							#springShowErrors("" "error")
+						</td>
+					</tr>
+					<tr>
+						<td class="label">
+							<label for="lastName">#springMessage("persona.label.lastname")</label>
+						</td>
+						<td>
+							#springFormInput("command.lastName" "")
+							#springShowErrors("" "error")
+						</td>
+					</tr>
+					<tr>
+						<td class="label">
+							<label for="lastName">#springMessage("persona.label.email")</label>
+						</td>
+						<td>
+							#springFormInput("command.email" "")
+							#springShowErrors("" "error")
+						</td>
+					</tr>
 				</table>
 				<table summary="Submit">
 					<tr>
