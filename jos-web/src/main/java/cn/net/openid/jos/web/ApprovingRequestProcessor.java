@@ -232,9 +232,9 @@ public class ApprovingRequestProcessor {
 	 */
 	private boolean isLoggedInUserOwnClaimedId() {
 		boolean ret;
-		if (userSession.isLoggedIn()
+		if (userSession.isLoggedIn()         /*
 				&& this.authRequest.getIdentity().equals(
-						userSession.getUser().getIdentifier())) {
+						userSession.getUser().getIdentifier()) */) {
 			ret = true;
 		} else {
 			ret = false;
@@ -291,7 +291,7 @@ public class ApprovingRequestProcessor {
 		String userSelectedClaimedId = null;
 		Boolean authenticatedAndApproved = approved;
 
-		String opLocalId = null;
+		String opLocalId = authRequest.getIdentity() + user.getUsername();
 		// if the user chose a different claimed_id than the one in request
 		if (userSelectedClaimedId != null
 				&& userSelectedClaimedId.equals(authRequest.getClaimed())) {

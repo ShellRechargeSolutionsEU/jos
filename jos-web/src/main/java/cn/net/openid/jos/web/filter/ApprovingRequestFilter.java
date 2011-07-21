@@ -83,6 +83,7 @@ public class ApprovingRequestFilter extends OncePerRequestFilter {
 		if (debug) {
 			logger.debug("Add attribute `token' to request: " + token);
 		}
+
 		filterChain.doFilter(request, response);
 	}
 }
