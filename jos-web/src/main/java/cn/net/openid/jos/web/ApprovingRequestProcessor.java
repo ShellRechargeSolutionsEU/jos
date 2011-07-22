@@ -262,7 +262,13 @@ public class ApprovingRequestProcessor {
 		} else {
 			approved = false;
 		}
-
+        /*
+        if (site.getRealm().getUrl().equals("http://localhost:8080/openid/response")) {
+            approved = true;
+        } else {
+            approved = false;
+        }
+        */
 		if (approved) {
 			josService.updateApproval(user, authRequest.getRealm());
 
@@ -272,6 +278,7 @@ public class ApprovingRequestProcessor {
 			// redirect to approving page.
 			String url = "approving?token="
 					+ userSession.addApprovingRequest(checkIdRequest);
+            //String url = "/";
 			httpResp.sendRedirect(url);
 		}
 	}
@@ -428,6 +435,9 @@ public class ApprovingRequestProcessor {
                     } else if (entry.equals("http://axschema.org/namePerson/last")) {
                         fetchResp.addAttribute("last", "http://axschema.org/namePerson/last",
                             persona.getFullname().substring(persona.getFullname().indexOf(' ') + 1));
+                    } else if (entry.equals("http://axschema.org/namePerson/friendly")) {
+                        fetchResp.addAttribute("nickname", "http://axschema.org/namePerson/friendly",
+                            persona.getNickname());
                     }
                 }
                 response.addExtension(fetchResp);
