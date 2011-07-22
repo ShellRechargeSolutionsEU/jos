@@ -54,6 +54,7 @@ public class LogoutController implements Controller {
 		if (session != null) {
 			session.invalidate();
 		}
+        response.sendRedirect(request.getHeader("Referer"));
 		return new ModelAndView("logout");
 	}
 }
